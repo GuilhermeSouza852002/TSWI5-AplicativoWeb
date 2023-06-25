@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Usuários</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        strong {
+            font-weight: bold;
+        }
+
+        .action-links {
+            display: flex;
+        }
+
+        .action-links a {
+            margin-left: 10px;
+            color: #333;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: background-color 0.3s ease;
+        }
+
+        .action-links a:hover {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista de Usuários Cadastrados</h1>
+    <ul>
+        {% for user in users %}
+            <li>
+                <div>
+                    <strong>Nome:</strong> {{ user.username }}<br>
+                    <strong>Senha:</strong> {{ user.password }}
+                </div>
+                <div class="action-links">
+                    <a href="/users/edit/{{ user.username }}">Editar</a>
+                    <a href="/users/delete/{{ user.username }}">Excluir</a>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="/">Voltar para o Registro</a>
+</body>
+</html>
