@@ -1,3 +1,4 @@
+# locust -f teste_sistema.py --host=http://localhost:5000
 #Importação
 from locust import HttpUser, task, between
 
